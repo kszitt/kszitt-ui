@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "./frontend/",
+    "module": "commonjs",
+    "target": "ES2015",
+    "baseUrl": "./src",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@public/*": ["public/*"],
+      "@http/*": ["http/*"],
+      "@router/*": ["router/*"],
+      "@store/*": ["store/*"]
+    },
+    "jsx": "react"
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}
