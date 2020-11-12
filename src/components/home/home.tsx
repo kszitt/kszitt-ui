@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {RouteProps} from "@public/interface";
 import {UpdateUSER, ClearUSER} from "@store/actions/user"
 import {GetLogin, PostLogin} from "@http/home"
+import {Button} from "../../kszitt-ui"
 import "./home.scss"
 
 
@@ -14,7 +15,7 @@ class Home extends React.Component<RouteProps, State> {
   state = {};
 
   componentDidMount(): void {
-    this.getLogin();
+    // this.getLogin();
     // this.postLogin();
   }
 
@@ -33,7 +34,8 @@ class Home extends React.Component<RouteProps, State> {
 
     return (
       <div id="home">
-        home1111
+        <h1>home1111</h1>
+        <Button className="btn">我是按钮</Button>
       </div>
     );
   }

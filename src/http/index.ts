@@ -1,5 +1,4 @@
 import axios from "axios";
-import {message} from "antd"
 import {GetBrowser} from "@public/interface";
 const Browser = GetBrowser();
 
