@@ -1,9 +1,9 @@
 import * as React from "react";
-import {connect} from 'react-redux'
+// import {connect} from 'react-redux'
 import {RouteProps} from "@public/interface";
-import {UpdateUSER, ClearUSER} from "@store/actions/user"
+// import {UpdateUSER, ClearUSER} from "@store/actions/user"
 import {GetLogin, PostLogin} from "@http/home"
-import {Button} from "../../kszitt-ui"
+// import {Button} from "../../kszitt-ui"
 import "./home.scss"
 
 
@@ -12,7 +12,9 @@ import "./home.scss"
 
 interface State {}
 class Home extends React.Component<RouteProps, State> {
-  state = {};
+  state = {
+    loading: false
+  };
 
   componentDidMount(): void {
     // this.getLogin();
@@ -29,19 +31,31 @@ class Home extends React.Component<RouteProps, State> {
     console.log(data);
   }
 
+  btnClick = () => {
+    console.log("btnClick")
+    this.setState({
+      loading: !this.state.loading
+    });
+    setTimeout(() => {
+      this.setState({
+        loading: !this.state.loading
+      });
+    }, 2000)
+  }
+
   render() {
-    let {} = this.state;
+    let {loading} = this.state;
 
     return (
       <div id="home">
         <h1>home1111</h1>
-        <Button className="btn">我是按钮</Button>
+        {/*<Button className="btn" loading={loading} onClick={this.btnClick} type="primary">我是按钮</Button>*/}
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
+/*function mapStateToProps(state) {
   return {
     USER: state.USER
   }
@@ -56,4 +70,5 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);*/
+export default Home

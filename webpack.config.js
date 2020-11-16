@@ -34,7 +34,7 @@ const PostcssLoader = {
 
 const webpackConfig = {
   entry: [
-    "react-hot-loader/patch",
+    // "react-hot-loader/patch",
     path.resolve(__dirname, "./src/index.tsx"),
   ],
   output: {
@@ -57,7 +57,25 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.j|tsx?$/,
+        test: /\.t|jsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              // 指定特定的ts编译配置，为了区分脚本的ts配置
+              configFile: path.resolve(__dirname, './tsconfig.json'),
+            },
+          },{
+            loader: "babel-loader",
+            options: {
+              cacheDirectory: true
+            }
+          },
+        ],
+      },/*{
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: "babel-loader",
@@ -66,7 +84,7 @@ const webpackConfig = {
             }
           }
         ],
-      },{
+      },*/{
         test: /\.scss$/,
         include: [
           path.resolve(__dirname, "src"),
@@ -130,7 +148,7 @@ const webpackConfig = {
     ))
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: `static/css/style${IsDevelopment ? "" : ".[hash:8]"}.css`,
       chunkFilename: `static/css/[id]${IsDevelopment ? "" : ".[hash:8]"}.css`,
@@ -165,8 +183,8 @@ const webpackConfig = {
 
 if(!IsDevelopment){
   if(!SERVER) {
-    webpackConfig.entry.splice(0, 1);
-    webpackConfig.plugins.splice(0, 1);
+    // webpackConfig.entry.splice(0, 1);
+    // webpackConfig.plugins.splice(0, 1);
   }
   webpackConfig.optimization = {
     minimizer: [

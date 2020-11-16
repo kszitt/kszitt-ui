@@ -7,6 +7,8 @@ interface ButtonProps {
   type?: ButtonType;
   className?: string;
   children?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  loading?: boolean;
 }
 interface ButtonState {
   loading?: boolean;

@@ -1,8 +1,17 @@
 import * as React from "react";
 
 
+interface Props {
+  aa?: string;
+}
+interface State {
+  value: number;
+}
+class NotFound extends React.Component<Props, State> {
+  state = {
+    value: 10
+  };
 
-class NotFound extends React.Component {
   UNSAFE_componentWillMount() {
 
   }

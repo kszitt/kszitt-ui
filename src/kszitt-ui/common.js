@@ -23,10 +23,10 @@ export function _inherits(subClass, superClass){
       configurable: true
     }
   });
-  // _setPrototypeOf(subClass, superClass);
+  _setPrototypeOf(subClass, superClass);
 }
 
-/*// 设置__proto__
+// 设置__proto__
 export function _setPrototypeOf(o, p) {
   if(!o) return;
   _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
@@ -34,7 +34,42 @@ export function _setPrototypeOf(o, p) {
     return o;
   };
   return _setPrototypeOf(o, p);
-}*/
+}
+
+export function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+export function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+  return _assertThisInitialized(self);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return self;
+}
+
+export function _typeof(obj) {
+  "@babel/helpers - typeof";
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+  return _typeof(obj);
+}
 
 // 合并
 export function _extends() {

@@ -13,7 +13,7 @@ interface Routes extends RouteObj {
 
 
 const Config: Routes[] = [
-  {
+  /*{
     path: "/",
     name: "首页",
     component: lazy(() => import("@components/main/main")),
@@ -29,7 +29,7 @@ const Config: Routes[] = [
     path: "/login",
     name: "登录",
     component: lazy(() => import("@components/login/login")),
-  },{
+  },*/{
     path: "/404",
     name: "404",
     component: lazy(() => import("@components/404/404")),
